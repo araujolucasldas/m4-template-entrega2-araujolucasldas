@@ -20,26 +20,29 @@ export class BooksControllers {
         return res.status(200).json(response)
     }
 
-    getOneBook(id: number, req: Request, res: Response) {
+    getOneBook( req: Request, res: Response) {
         const booksServices = new BooksServices()
 
-        const response = booksServices.getOneBook(req.params.id)
+        const response = booksServices.getOneBook(Number(req.params.id))
+
+        
+        console.log("getOnebook =>",response)
 
         return res.status(200).json(response)
     }
 
-    updateBook(id: number, req: Request, res: Response) {
+    updateBook( req: Request, res: Response) {
         const booksServices = new BooksServices()
 
-        const response = booksServices.updateBook(req.params.id, req.body)
+        const response = booksServices.updateBook(Number(req.params.id), req.body)
 
         return res.status(200).json(response)
     }
 
-    deleteBook(id: number, req: Request, res: Response) {
+    deleteBook( req: Request, res: Response) {
         const booksServices = new BooksServices()
 
-        const response = booksServices.deleteBook(req.params.id)
+        const response = booksServices.deleteBook(Number(req.params.id))
 
         return res.status(204).json()
     }

@@ -23,13 +23,13 @@ export class BooksServices{
         return booksDatabase
     }
 
-    getOneBook(id: string) {
+    getOneBook(id: number) {
         const findBook = booksDatabase.find(book => book.id === Number(id))
 
         return findBook
     }
  
-    updateBook(id: string, data: TUpdateBook){
+    updateBook(id: number, data: TUpdateBook){
         const currentBook = booksDatabase.find(book => book.id === Number(id))
 
         if (currentBook) {
@@ -44,12 +44,11 @@ export class BooksServices{
             }
 
             booksDatabase.splice(index, 1, updatedBook)
-
             return updatedBook
         }
     }
 
-    deleteBook(id: string) {
+    deleteBook(id: number) {
         const index = booksDatabase.findIndex(book => book.id === Number(id))
 
         booksDatabase.splice(index, 1)
