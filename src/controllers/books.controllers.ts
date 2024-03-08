@@ -15,7 +15,9 @@ export class BooksControllers {
     getBooks(req: Request, res: Response) {
         const booksServices = new BooksServices()
 
-        const response = booksServices.getBooks()
+        const search = req.query.search
+
+        const response = booksServices.getBooks(search as string)
 
         return res.status(200).json(response)
     }
@@ -24,9 +26,6 @@ export class BooksControllers {
         const booksServices = new BooksServices()
 
         const response = booksServices.getOneBook(Number(req.params.id))
-
-        
-        console.log("getOnebook =>",response)
 
         return res.status(200).json(response)
     }
