@@ -11,8 +11,6 @@ export type TCreateBook = Pick<Ibook, "name" | "pages"| "category">
 
 export type TUpdateBook = Partial<TCreateBook>
 
-//export type TSearchbook = Pick<Ibook, "name">
-
 export interface ImodelBook{
     createBook(data: TCreateBook): Ibook
     getBooks(): Ibook[]
